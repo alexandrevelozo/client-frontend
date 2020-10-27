@@ -18,7 +18,7 @@ function Login() {
           <a href="forgot">Esqueci minha senha</a>
         </form>
 
-        <a href="create-account">
+        <a href="register">
           <FiLogIn />
           Criar conta
         </a>

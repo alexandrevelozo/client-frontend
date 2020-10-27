@@ -1,28 +1,30 @@
-import React, { useState, createContext } from 'react';
-// import { lightTheme, darkTheme } from '../../theme';
+import React, { useState, createContext, useEffect } from 'react';
 
-export const ThemeContext = createContext({
-  toggleTheme: () => {},
-  theme: 'light' | 'dark',
-});
+const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
+    if (theme === 'dark') {
+      window.localStorage.setItem('theme', 'light');
       setTheme('light');
+    } else {
+      window.localStorage.setItem('theme', 'dark');
+      setTheme('dark');
     }
   };
 
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    localTheme && setTheme(localTheme);
+  }, []);
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ toggleTheme, theme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
-// O provider vai fazer o uso do contexto, e a nossa
-// aplicacao fica todo contida no provider
+export { ThemeProvider, ThemeContext };

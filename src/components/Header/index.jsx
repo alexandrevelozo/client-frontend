@@ -5,14 +5,14 @@ import IconNotifications from '../../components/IconNotifications';
 import IconConfig from '../../components/IconConfig';
 
 import { ThemeContext } from '../contexts/ThemeContext';
-import { lightTheme, darkTheme } from '../../theme';
 
 import {
   Container,
   Wrapper,
   SessionHeader,
   HeaderItems,
-  IconSwitchTheme,
+  StyledSun,
+  StyledMoon,
 } from './styles';
 
 function Header() {
@@ -34,9 +34,12 @@ function Header() {
             className="profile-header"
             alt=""
           />
-          <IconSwitchTheme onClick={toggleTheme}>
-            {theme === 'light' ? darkTheme : lightTheme}
-          </IconSwitchTheme>
+
+          {theme === 'dark' ? (
+            <StyledSun size={32} onClick={toggleTheme} />
+          ) : (
+            <StyledMoon size={32} onClick={toggleTheme} />
+          )}
         </HeaderItems>
       </Wrapper>
     </Container>

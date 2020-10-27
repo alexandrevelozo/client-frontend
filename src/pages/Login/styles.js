@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-left: 1px solid #bb86fc;
+  border-right: 1px solid #bb86fc;
 
   place-content: center;
 
@@ -30,18 +30,10 @@ export const Wrapper = styled.div`
     width: 340px;
     text-align: center;
 
-    .items-text {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: flex-start;
-      padding-bottom: 20px;
-    }
-
     h1 {
       color: ${(props) => props.theme.text};
       margin-top: -40px;
-      padding-bottom: 6px;
+      margin-bottom: 24px;
     }
 
     input {
@@ -84,6 +76,7 @@ export const Wrapper = styled.div`
       display: block;
       margin-top: 24px;
       text-decoration: none;
+      transition: 0.2s ease-in;
     }
 
     a:hover {
@@ -99,6 +92,7 @@ export const Wrapper = styled.div`
 
     display: flex;
     align-items: center;
+    transition: 0.2s ease-in;
   }
 
   a:hover {
@@ -107,13 +101,6 @@ export const Wrapper = styled.div`
 
   a > svg {
     margin-right: 16px;
-  }
-  .bottom-form {
-    color: #bb86fc;
-
-    .rocket {
-      padding-left: 4px;
-    }
   }
 `;
 
